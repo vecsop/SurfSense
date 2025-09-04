@@ -65,6 +65,34 @@
     NEXT_PUBLIC_API_URL=http://localhost:8000
     ```
 
+4.  **API 密钥和配置 (API Keys and Configuration)**
+    为了使 SurfSense 的所有功能正常工作，您需要配置一些 API 密钥。这些密钥应在 `surfsense_backend/.env` 文件中设置。
+
+    打开 `surfsense_backend/.env` 文件并根据您的需要填入以下值：
+
+    - **认证 (Authentication)**:
+        - `AUTH_TYPE`: 设置为 `GOOGLE` 或 `LOCAL`。
+        - 如果使用 `GOOGLE`，您需要提供 `GOOGLE_OAUTH_CLIENT_ID` 和 `GOOGLE_OAUTH_CLIENT_SECRET`。
+
+    - **文件处理服务 (File Processing)**:
+        - `ETL_SERVICE`: 选择 `UNSTRUCTURED`, `LLAMACLOUD`, 或 `DOCLING`。
+        - 如果使用 `UNSTRUCTURED`，请提供 `UNSTRUCTURED_API_KEY`。
+        - 如果使用 `LLAMACLOUD`，请提供 `LLAMA_CLOUD_API_KEY`。
+
+    - **语音转文本 (Speech-to-Text - STT)**:
+        - `STT_SERVICE`: 选择一个服务，例如 `openai/whisper-1`。
+        - `STT_SERVICE_API_KEY`: 提供所选服务的 API 密钥。
+
+    - **文本转语音 (Text-to-Speech - TTS)**:
+        - `TTS_SERVICE`: 选择一个服务，例如 `openai/tts-1`。
+        - `TTS_SERVICE_API_KEY`: 提供所选服务的 API 密钥。
+
+    - **其他服务**:
+        - `FIRECRAWL_API_KEY`: 用于 Firecrawl 服务的密钥。
+        - `SECRET_KEY`: 用于保护会话和令牌的密钥，请设置为一个长而随机的字符串。
+
+    > **重要提示**: 请从各个服务的官方网站获取您自己的 API 密钥。示例文件中提供的密钥仅为占位符。
+
 ## 运行应用程序
 
 SurfSense 提供了两种部署模式，您可以根据需要选择。
